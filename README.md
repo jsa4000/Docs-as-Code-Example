@@ -4,7 +4,7 @@
 
 To prepare the Github repository to have the needed configuration in order to work properly, you will need to enable some permissions and security options.
 
-## Permissions
+### Permissions
 
 In order to push packages or perform other actions using the automatic `GITHUB_TOKEN` generated during the workflow, you will need following steps to add needed permissions:
 
@@ -14,15 +14,26 @@ In order to push packages or perform other actions using the automatic `GITHUB_T
   * Enter into the desired Package with the `Permission error` and select `Package settings` option.
   * On the `Manage Actions access` click `Add repository` and select the repository with the Github action that will publish the artifact. Wait until the repository is added and change its role to `Write`.
 
-## Security
+### Security
 
 For each reposirtory it can be enabled some tools that will be used during Git events (push, pull_request, etc..) and Github actions.
 
-* To Enable `Dependabot` in the repository. Go to` Settings > Code Security & analysis > Dependabot alerts` and `enable` the feature.
+* To Enable `Dependabot` in the repository. Go to `Settings > Code Security & analysis > Dependabot alerts` and `enable` the feature.
 Also configure Secret Scanning with the repository. 
 * To enable `Secrets Scanning` Go to `Settings > Code Security & analysis` and `enable` it . Enable `Push Protection` as well which will prevent secrets from being pushed to the repository.
 
-## Github Actions
+### Github Pages
+
+Enable Github pages in the repository.
+Go to `Settings -> Pages` and select the `gh-pages` branch that will be used to publish the static content and used by a Github action with the Documentation generated. Finally click `save` so a new Workflow that will be triggered to publish the website.
+
+```txt
+Your site is live at https://jsa4000.github.io/Docs-as-Code-Example/
+```
+
+> NOTE: Wait until the URL is generated If the branch does not appear, create a new branch as `gh-pages`.
+
+### Github Actions
 
 Github actions are enabled by default having workflows inside a folder `.github/workflows`. In these workflows you have to set the trigger actions (`on: [events...]`) and the jobs and steps that are part of this. Another alternative is using the Github Actions Templates provided by Github `Actions -> New Workflow`. After selecting a Workflow this will create a new workflow file that can be committed directly within the ui.
 
