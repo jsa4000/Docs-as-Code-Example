@@ -1,0 +1,16 @@
+= Welcome to Component!
+:navtitle: Welcome
+
+This is the automatic start page for version *{page-component-display-version}* of Component.
+
+== Page source
+
+This page is sourced from the AsciiDoc file named [.path]_index.adoc_ that is located at [.path]_demo-component-b/docs/modules/ROOT/pages_.
+
+=== Why is this the home page of Component
+
+This page is automatically used as the start page of Component because it is stored in the ROOT module and named [.path]_index.adoc_.
+
+=== Why is this the home page of the Docs site?
+
+This page is used as the home page for the docs because it is assigned as the site `start_page` in the playbook file [.path]_site.yml_.

@@ -1,0 +1,51 @@
+= Examples
+:navtitle: Examples
+
+Examples are files used to explain the usage of some code or functionality.
+
+== Properties
+
+Properties are declared in maven using `<properties>` tag like the following <<ex-props,example>>.
+
+.Properties
+[source#ex-props,xml]
+----
+include::example$pom.xml[tag=properties]
+----
+
+<1> Java version
+<2> Git Commit Plugin version to generate `git.properties` file
+
+== Build Info
+
+It is needed to add the `actuator` spring dependency and add some **configuration** in the application properties file to expose info endpoints.
+
+=== Maven
+
+Maven information are extracted by using a configuring Spring maven plugin with the following <<ex-build,configuration>>.
+
+.Properties
+[source#ex-build,xml]
+----
+include::example$pom.xml[tag=spring]
+----
+
+<1> Add a goal to create build info
+<2> Include additional properties
+<3> Exclude any properties for security reasons.
+
+=== Git
+
+Git information are extracted by using a maven plugin with the following <<ex-git,configuration>>.
+
+.Properties
+[source#ex-git,xml]
+----
+include::example$pom.xml[tag=git]
+----
+
+<1> Group Id (Changed from v5.x).
+<2> Artifact Id.
+<3> Artifact Version from properties.
+<4> Enabled by default to generate `git.properties` file
+<5> To Include only specific metadata from Git for security reasons.

@@ -1,0 +1,29 @@
+= Emojis
+:navtitle: Emojis
+
+https://github.com/ggrossetie/asciidoctor-emoji[asciidoctor-emoji] is an extension for Asciidoctor that turns `\emoji:heart[]` into emoji:heart[] !
+
+Additionally you can configure the size of an emoji. By default, the size is 24px but you can use one of the following:
+
+* 1x (17px)
+* lg (24px)
+* 2x (34px)
+* 3x (50px)
+* 4x (68px)
+* 5x (85px)
+
+If you want a really big 🐻, use:
+
+----
+emoji:bear[5x]
+----
+
+emoji:bear[5x]
+
+You can also specify a size in pixel 🎉
+
+----
+emoji:tada[42px]
+----
+
+emoji:tada[42px]

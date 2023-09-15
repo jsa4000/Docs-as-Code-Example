@@ -1,0 +1,34 @@
+name: Publish Docs to GitHub Pages
+
+on:
+  push:
+    branches: ['main', 'release']
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and Publish Docs
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./docs
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install Antora Dependencies
+      run: npm install
+    - name: Generate Site
+      run: npm run build
+    # In order to publish to Github Pages you have to enable it first from Repository Settings -> Pages
+    # Then select the branch (gh-pages) and folder (root) to publish the Web.
+    # Wait until the web site is available i.e https://jsa4000.github.io/Microservices-Best-Practices
+    - name: Publish to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/build/site
+        commit_message: ${{ github.event.head_commit.message }}

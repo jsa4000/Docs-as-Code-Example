@@ -1,0 +1,18 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Documentation as Code (Docs as Code)",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx antora --clean --fetch antora-playbook.yaml --stacktrace",
+    "start": "npx antora --clean --fetch antora-playbook-local.yaml --stacktrace && npx serve ./build/site",
+    "verify": "npm ci && npm run build"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "antora": "^3.1.4",
+    "@antora/lunr-extension": "^1.0.0-alpha.8",
+    "asciidoctor-emoji": "^0.5.0",
+    "asciidoctor-kroki": "^0.17.0"
+  }
+}

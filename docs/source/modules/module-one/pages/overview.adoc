@@ -1,0 +1,70 @@
+= Module One Overview
+
+This is version *{page-component-display-version}* of Module One in Component B.
+
+== Page source
+
+This page is sourced from [.path]_demo-component-b/docs/modules/module-one/pages/overview.adoc_.
+
+== Cross reference syntax to target this page
+
+To create a cross reference *to this page from another page in Module One*, the xref syntax would be `\xref:overview.adoc[]`.
+
+To create a cross reference *to this page from a page in the ROOT module of Component B*, the xref syntax would be `\xref:module-one:overview.adoc[]`.
+
+=== Always target the latest version of this page
+
+To create a cross reference *to the latest version of this page from a page in Component A*, the xref syntax would be `\xref:component-b:module-one:overview.adoc[]`.
+
+=== Target a specific version of this page
+
+To create a cross reference *to version 1.0 of this page from a page in Component A*, the xref syntax would be `\xref:1.0@component-b:module-one:overview.adoc[]`.
+
+== Family Directories and Families
+
+Antora assigns preset, content-specific behavior to the source files stored in the family directories.
+
+[#family-dir]
+=== What's a family directory?
+
+A [.term]*family directory* groups source files that share the same function, processing requirements, and publishing rules.
+Antora recognizes five standard family directories: [.path]_attachments_, [.path]_examples_, [.path]_images_, [.path]_pages_, and [.path]_partials_.
+
+[listing]
+----
+📒 repository
+  📄 antora.yml
+  📂 modules
+    📂 named-module
+      📁 attachments
+      📁 examples
+      📁 images
+      📁 pages
+      📁 partials
+----
+
+Each family directory is optional.
+You only need to create a family directory if you have source files that should be stored in a specific family directory.
+That is, if a module doesn't have any image files, don't create an [.path]_images_ directory.
+Set up the family directories you need at the root of a module directory.
+At runtime, Antora collects the source files stored in the family directories and assigns them to the corresponding <<family,family>>.
+
+[#family]
+=== What's a family?
+
+A [.term]*family* is a classification Antora applies to each source file collected from a family directory.
+The assigned family corresponds to the name of the family directory.
+The families are:
+
+* attachments
+* examples
+* images
+* pages
+* partials
+
+Each source file is configured, converted, and published according to the preset behavior associated with its assigned family.
+
+TIP: A source file that is assigned to a family is often referred to as resource.
+Antora assigns each resource that it catalogs a unique Antora resource ID that consists of five coordinates.
+One coordinate of the resource ID represents the family of the resource.
+

@@ -1,0 +1,46 @@
+= Images
+:navtitle: Images
+
+You can insert an image into any page in your site, regardless of the module or component version to which the target image file belongs.
+On this page, you'll learn how to assign the correct resource ID coordinates to an image macro based on the version, component, and module the image belongs to in relation to the page where you want to embed it.
+
+Images must be put inside an `images` folder for each _component_ and _module_ as shown in <<ex-co>>.
+
+.Directories and files 
+[listing#ex-co]
+----
+📄 antora.yml <.>
+📂 modules
+  📂 module-one <.>
+    📂 images <.>
+      📄 source-map.jpg
+    📂 pages <.>
+      📄 map.adoc
+----
+<.> Defines the component version as _example_
+<.> Defines a module named _module-one_
+<.> Defines subsequent files as images
+<.> Defines subsequent files as pages
+
+== Use an image from the same module
+
+If it's from the same module, you can use simply following syntax.
+
+----
+image::asciidoc-logo.png[]
+----
+
+image::asciidoc-logo.png[]
+
+== Use an image from another module
+
+If it's from another version,component, module or folder, use following syntax.
+
+----
+image:module:path/to/target-image-filename.ext[optional attribute] <.>
+
+image:version@module:file-coordinate-of-target-image.ext[optional attribute] <.>
+----
+
+<.> Image is in different module and inside a folder hierarchy.
+<.> Image is in a module with a specific version.

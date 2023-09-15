@@ -1,0 +1,33 @@
+site:
+  title: Docs As Code
+  start_page: component:ROOT:home.adoc
+content:
+  tags: []
+  branches: []
+  sources:
+  - url: ./..
+    start_path: docs/source
+    branches: HEAD
+    edit_url: '{web_url}/edit/develop/{path}'
+    version:
+      (*): prerelease
+asciidoc:
+  attributes:
+    experimental: ''
+    idprefix: ''
+    idseparator: '-'
+    page-pagination: ''
+    source-language: asciidoc@
+    kroki-fetch-diagram: true
+    kroki-default-format: png@
+    kroki-default-options: inline
+  extensions:
+  - asciidoctor-emoji
+  - asciidoctor-kroki
+antora:
+  extensions:
+  - require: '@antora/lunr-extension'
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true

@@ -1,0 +1,19 @@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  info:
+    java.enabled: true # Enabled Java Runtime information
+    env.enabled: true # Enable info.app.* environment variables
+    git:
+      enabled: true
+      mode: full
+
+info:
+  app:
+    example: Sample Environment Variable
+    test.example: Sample Environment Variable With Level
+    description: This is a description
+    team: My team
